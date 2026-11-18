@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- Hero Start -->
+<div class="container-fluid py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Create Your Account</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'restaurant:index' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Register</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Hero End -->
+
+<div class="container py-5">     
+    <div class="row justify-content-center">         
+        <div class="col-md-6 col-lg-5">             
+            <div class="card shadow p-4">                 
+                <h2 class="text-center mb-4">Create Your Account</h2>  
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary w-100 mt-3">
+                        Register
+                    </button>
+                </form>
+            </div>   
+        </div>
+    </div>
+</div>
+
+{% endblock %}
