@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid bg-white p-0">
+
+<!-- Hero Start -->
+<div class="container-fluid py-5 bg-dark hero-header mb-5">
+    <div class="container my-5 py-5">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-3 text-white animated slideInLeft">
+                    Georgia on Every Plate
+                </h1>
+
+                <p class="text-white animated slideInLeft mb-4 pb-2">
+                    Discover the authentic taste of Georgian cuisine.
+                    Enjoy traditional recipes, fresh ingredients and
+                    unforgettable flavors.
+                </p>
+
+                <a href="{% url 'restaurant:menu' %}"
+                    class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">
+                    Explore Our Menu
+                </a>
+            </div>
+
+            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                <img class="img-fluid"
+                        src="{% static 'main/img/hero.png' %}"
+                        alt="Georgian food">
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100"
+                                    src="{% static 'main/img/about-1.jpg' %}"
+                                    alt="Restaurant food">
+                        </div>
+
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-75"
+                                    src="{% static 'main/img/about-2.jpg' %}"
+                                    alt="Traditional cuisine"
+                                    style="margin-top: 25%;">
+                        </div>
+
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-75"
+                                    src="{% static 'main/img/about-3.jpg' %}"
+                                    alt="Fresh ingredients">
+                        </div>
+
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100"
+                                    src="{% static 'main/img/about-4.jpg' %}"
+                                    alt="Delicious meal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">
+                        About Us
+                    </h5>
+
+                    <h1 class="mb-4">
+                        Welcome to AMBAVI
+                    </h1>
+
+                    <p class="mb-4">
+                        AMBAVI brings the authentic flavors of Georgia
+                        to your table. We celebrate Georgian food,
+                        traditional recipes and the joy of sharing meals.
+                    </p>
+
+                    <p class="mb-4">
+                        From delicious khinkali to freshly baked
+                        khachapuri, discover the dishes that make
+                        Georgian cuisine special.
+                    </p>
+
+                    <a class="btn btn-primary py-3 px-5 mt-2"
+                        href="{% url 'restaurant:about' %}">
+                        Read More
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Menu Preview Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+
+            <div class="text-center">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">
+                    Our Menu
+                </h5>
+
+                <h1 class="mb-5">Discover Georgian Cuisine</h1>
+
+                <p class="mb-4">
+                    Explore our selection of traditional Georgian dishes,
+                    prepared with care and fresh ingredients.
+                </p>
+
+                <a href="{% url 'restaurant:menu' %}"
+                    class="btn btn-primary py-3 px-5">
+                    View Full Menu
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <!-- Menu Preview End -->
+
+
+    <!-- Reservation / Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-0">
+
+                <div class="col-md-6">
+                    <div class="video">
+                        <img class="img-fluid w-100 h-100"
+                                src="{% static 'main/img/hero.png' %}"
+                                alt="AMBAVI Georgian cuisine">
+                    </div>
+                </div>
+
+                <div class="col-md-6 bg-dark d-flex align-items-center">
+                    <div class="p-5">
+
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">
+                            Get In Touch
+                        </h5>
+
+                        <h1 class="text-white mb-4">
+                            Have a Question?
+                        </h1>
+
+                        <p class="text-white mb-4">
+                            We would love to hear from you.
+                            Send us your questions or feedback.
+                        </p>
+
+                        <a href="{% url 'restaurant:contact' %}"
+                            class="btn btn-primary py-3 px-5">
+                            Contact Us
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Reservation / Contact End -->
+
+</div>
+
+{% endblock %}

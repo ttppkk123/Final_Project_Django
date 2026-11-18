@@ -1,0 +1,111 @@
+{% load static %}
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    AMBAVI
+                </h4>
+
+                <a class="btn btn-link" href="{% url 'restaurant:about' %}">
+                    About Us
+                </a>
+
+                <a class="btn btn-link" href="{% url 'restaurant:menu' %}">
+                    Our Menu
+                </a>
+
+                <a class="btn btn-link" href="{% url 'restaurant:contact' %}">
+                    Contact Us
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    Contact
+                </h4>
+
+                <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-3"></i>
+                    Georgia
+                </p>
+
+                <p class="mb-2">
+                    <i class="fa fa-envelope me-3"></i>
+                    info@ambavi.com
+                </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    Opening Hours
+                </h4>
+
+                <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                <p>09AM - 09PM</p>
+
+                <h5 class="text-light fw-normal">Sunday</h5>
+                <p>10AM - 08PM</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    Our Promise
+                </h4>
+
+                <p>
+                    Traditional Georgian flavors, delicious food
+                    and a warm welcome.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; AMBAVI. All Rights Reserved.
+                    
+                </div>
+
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="{% url 'restaurant:index' %}">Home</a>
+                        <a href="{% url 'restaurant:contact' %}">Contact</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Footer End -->
+
+
+<!-- Back To Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+    <i class="bi bi-arrow-up"></i>
+</a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="{% static 'main/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'main/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'main/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'main/lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'main/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'main/lib/tempusdominus/js/moment.min.js' %}"></script>
+
+<!-- Template JavaScript -->
+<script src="{% static 'main/js/main.js' %}"></script>

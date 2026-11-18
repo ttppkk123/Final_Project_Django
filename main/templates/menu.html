@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid bg-white p-0">
+    
+    <!-- Hero Start -->
+    <div class="container-fluid py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Food Menu</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="{% url 'restaurant:index' %}">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Menu Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+                <h1 class="mb-5">Most Popular Items</h1>
+            </div>
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 {% if forloop.first %}active{% endif %}" data-bs-toggle="pill" href="#category-{{ category.id }}">
+                           {{ category.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content">
+                    <form method="GET" action="{% url 'restaurant:menu' %}" class="mb-4">
+                        <div class="row g-3 align-items-end">
+
+                            <div class="col-md-3">
+                                <label class="form-label">Maximum spiciness</label>
+                                <select name="spiciness" class="form-select">
+                                    <option value="">Any</option>
+                                    <option value="0">Not spicy</option>
+                                    <option value="2">Medium</option>
+                                    <option value="3">Spicy</option>
+                                    <option value="4">Very spicy</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Nuts</label>
+                                <select name="nuts" class="form-select">
+                                    <option value="">All dishes</option>
+                                    <option value="false">No nuts</option>
+                                    <option value="true">Contains nuts</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Vegetarian</label>
+                                <select name="vegetarian" class="form-select">
+                                    <option value="">All dishes</option>
+                                    <option value="true">Vegetarian</option>
+                                    <option value="false">Non-vegetarian</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    Apply Filters
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                    {% for category in categories %}
+                        <div id="category-{{ category.id }}"
+                            class="tab-pane fade {% if forloop.first %}show active{% endif %}">
+
+                            <div class="row g-4">
+
+                                {% for dish in dishes %}
+                                    {% if dish.category_id == category.id %}
+                                <div class="col-lg-6">
+                                    <div class="d-flex align-items-center">
+
+                                        <img class="flex-shrink-0 img-fluid rounded"
+                                            src="{% static dish.image %}"
+                                            alt="{{ dish.name }}"
+                                            style="width: 80px;">
+
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>{{ dish.name }}</span>
+                                                <span class="text-primary">{{ dish.price }} GEL</span>
+                                            </h5>
+
+                                            <small class="fst-italic">
+                                                {{ dish.description }}
+                                            </small>
+
+                                            <small class="d-block mt-1">
+                                                Spiciness: {{ dish.spiciness }}/5
+                                            </small>
+
+                                            <small class="d-block">
+                                                {% if dish.nuts %}
+                                                    Contains nuts
+                                                {% else %}
+                                                    No nuts
+                                                {% endif %}
+                                            </small>
+
+                                            <form method="POST" action="{% url 'restaurant:add_to_cart' dish.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm btn-outline-primary mt-2">
+                                                    <i class="fa fa-shopping-cart me-2"></i>
+                                                    Add to Cart
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Menu End -->
+    
+
+</div>
+
+{% endblock %}
